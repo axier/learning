@@ -1,0 +1,6 @@
+forge "https://forgeapi.puppetlabs.com"
+
+mod 'vagrant-profiles', :path => 'profiles'
+mod 'vagrant-roles', :path => 'roles'
+
+mod 'saz-vim', '2.4.0'
