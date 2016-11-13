@@ -2,5 +2,19 @@ forge "https://forgeapi.puppetlabs.com"
 
 mod 'vagrant-profiles', :path => 'profiles'
 mod 'vagrant-roles', :path => 'roles'
+#mod 'vagrant-statis-files', :path => 'static-files'
 
-mod 'saz-vim', '2.4.0'
+#modules in development
+
+
+#utils modules
+mod 'saz-vim', '2.4.0'                      #2016/11/09
+mod 'puppetlabs-java', '1.6.0'              #2016/11/09
+mod 'puppet-archive', '1.1.2'               #2016/11/09
+
+
+# apps modules
+
+mod 'lesaux-kibana4', '1.0.17'              #2016/11/09
+mod 'elasticsearch-logstash', '0.6.4'       #2016/11/09
+mod 'elasticsearch-elasticsearch', '0.14.0' #2016/11/09

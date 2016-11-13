@@ -1,0 +1,6 @@
+---
+
+elk::java_version: '8'
+elk::elasticsearch::version: '2.4.1'
+elk::logstash::version: '2.4.0'
+elk::kibana::version: '4.6.1'
