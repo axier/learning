@@ -1,9 +1,20 @@
 class profiles::confs::elk::standalone {
-  $java_version                = hiera('elk::java_version')
-  $logstash_version            = hiera('elk::logstash::version')
-  $elasticsearch_version       = hiera('elk::elasticsearch::version')
-  $elasticsearch_instance_name = hiera('elk::elasticsearch::instance_name')
-  $kibana_version              = hiera('elk::kibana::version')
+  $java_version                          = hiera('elk::java_version')
+
+  $logstash_version                      = hiera('elk::logstash::version')
+
+  $logstash_azureeventhub_ensure         = hiera('elk::logstash::azureeventhub::ensure')
+  $logstash_azureeventhub_key            = hiera('elk::logstash::azureeventhub::key')
+  $logstash_azureeventhub_username       = hiera('elk::logstash::azureeventhub::username')
+  $logstash_azureeventhub_namespace      = hiera('elk::logstash::azureeventhub::namespace')
+  $logstash_azureeventhub_evenhub        = hiera('elk::logstash::azureeventhub::evenhub')
+  $logstash_azureeventhub_partitions     = hiera('elk::logstash::azureeventhub::partitions')
+  $logstash_azureeventhub_consumer_group = hiera('elk::logstash::azureeventhub::consumer_group')
+
+  $elasticsearch_version                 = hiera('elk::elasticsearch::version')
+  $elasticsearch_instance_name           = hiera('elk::elasticsearch::instance_name')
+
+  $kibana_version                        = hiera('elk::kibana::version')
 
 
   class { '::profiles::utils::java':
@@ -25,13 +36,16 @@ class profiles::confs::elk::standalone {
   class { '::profiles::apps::elasticsearch::plugins::royrusso_elasticsearch_hq':
     instance_name => $elasticsearch_instance_name,
   }
+  class { '::profiles::apps::elasticsearch::plugins::lmenezes_elasticsearch_kopf':
+    instance_name => $elasticsearch_instance_name,
+  }
   class { '::profiles::apps::logstash::plugins::logstash_input_azureeventhub':
-    key            => 'pyHpO/XzXVsm9TWWtu4JGot+i0EfxHRlJYr5CeWpHdg=',
-    username       => 'logstash',
-    namespace      => 'Poc-EventHub-ELK',
-    eventhub       => 'poc-eventhub-elk',
-    partitions     => 2,
-    consumer_group => '$Default',
+    key            => $logstash_azureeventhub_key,
+    username       => $logstash_azureeventhub_username,
+    namespace      => $logstash_azureeventhub_namespace,
+    eventhub       => $logstash_azureeventhub_evenhub,
+    partitions     => $logstash_azureeventhub_partitions,
+    consumer_group => $logstash_azureeventhub_consumer_group,
     require        => Class[ '::profiles::apps::logstash::base' ],
   }
   class { '::profiles::apps::logstash::plugins::logstash_output_elasticsearch':
