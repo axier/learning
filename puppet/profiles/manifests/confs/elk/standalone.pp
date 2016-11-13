@@ -1,14 +1,17 @@
 class profiles::confs::elk::standalone {
-  $java_version          = hiera('elk::java_version')
-  $logstash_version      = hiera('elk::logstash::version')
-  $elasticsearch_version = hiera('elk::elasticsearch::version')
-  $kibana_version        = hiera('elk::kibana::version')
+  $java_version                = hiera('elk::java_version')
+  $logstash_version            = hiera('elk::logstash::version')
+  $elasticsearch_version       = hiera('elk::elasticsearch::version')
+  $elasticsearch_instance_name = hiera('elk::elasticsearch::instance_name')
+  $kibana_version              = hiera('elk::kibana::version')
+
 
   class { '::profiles::utils::java':
     version => $java_version,
   } ->
   class { '::profiles::apps::elasticsearch::base':
-    version => $elasticsearch_version,
+    version       => $elasticsearch_version,
+    instance_name => $elasticsearch_instance_name,
   } ->
   class { '::profiles::apps::kibana::base':
     version => $kibana_version,
@@ -17,8 +20,7 @@ class profiles::confs::elk::standalone {
     version => $logstash_version,
   }
   class { '::profiles::apps::elasticsearch::plugins::modz_elasticsearch_head':
-    instance_name => $instance_name,
-    require       => Class[ '::profiles::apps::elasticsearch::base' ]
+    instance_name => $elasticsearch_instance_name,
   }
   class { '::profiles::apps::logstash::plugins::logstash_input_azureeventhub':
     key            => 'pyHpO/XzXVsm9TWWtu4JGot+i0EfxHRlJYr5CeWpHdg=',
