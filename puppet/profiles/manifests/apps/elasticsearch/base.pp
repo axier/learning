@@ -18,7 +18,4 @@ class profiles::apps::elasticsearch::base (
 
   ::elasticsearch::instance { $instance_name: }
 
-  #class { '::profiles::apps::elasticsearch::plugins::royrusso_elasticsearch_hq':
-  #  instance_name => $instance_name,
-  #}
 }
