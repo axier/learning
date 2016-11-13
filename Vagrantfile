@@ -35,7 +35,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   CONFIG['roles'].each do |role, conf|
     (1..conf['count']).each do |count|
       config.vm.define "#{role}-#{count}" do |machine|
-        $ip_count = $ip_count + 1
+        $ipCount = $ipCount + 1
         machine.vm.box = CONFIG['box']
         machine.vm.hostname = "#{role}-#{count}.vagrant.local"
         machine.vm.network "private_network", ip: "172.16.0.#{$ipCount}"

@@ -20,15 +20,8 @@ persistent-storage:
   enable: false
 box: bento/centos-7.2
 roles:
-  server:
-    environment: 'default'
-    cpu: 1
-    memory: 1024
-    count: 1
-    data:
-      enable: false
-  database:
-    environment: 'default'
+  standalone:
+    environment: 'elk'
     cpu: 1
     memory: 1024
     count: 1
