@@ -5,7 +5,7 @@ class profiles::apps::elasticsearch::plugins::royrusso_elasticsearch_hq (
 )
 {
 
-  ::elasticsearch::plugin { 'royrusso/elasticsearch-HQ':
+  ::elasticsearch::plugin { 'royrusso/elasticsearch-hq':
     instances => $instance_name,
   }
 

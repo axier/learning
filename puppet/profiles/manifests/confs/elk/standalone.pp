@@ -22,6 +22,9 @@ class profiles::confs::elk::standalone {
   class { '::profiles::apps::elasticsearch::plugins::modz_elasticsearch_head':
     instance_name => $elasticsearch_instance_name,
   }
+  class { '::profiles::apps::elasticsearch::plugins::royrusso_elasticsearch_hq':
+    instance_name => $elasticsearch_instance_name,
+  }
   class { '::profiles::apps::logstash::plugins::logstash_input_azureeventhub':
     key            => 'pyHpO/XzXVsm9TWWtu4JGot+i0EfxHRlJYr5CeWpHdg=',
     username       => 'logstash',
