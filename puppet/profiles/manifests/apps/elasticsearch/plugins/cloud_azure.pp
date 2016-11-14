@@ -1,4 +1,4 @@
-class profiles::apps::elasticsearch::plugins::modz_elasticsearch_head (
+class profiles::apps::elasticsearch::plugins::cloud_azure (
 
   $ensure        = 'absent',
   $instance_name = 'base',
@@ -6,7 +6,7 @@ class profiles::apps::elasticsearch::plugins::modz_elasticsearch_head (
 )
 {
 
-  ::elasticsearch::plugin { 'mobz/elasticsearch-head':
+  ::elasticsearch::plugin { 'cloud-azure':
     ensure    => $ensure,
     instances => $instance_name,
   }
