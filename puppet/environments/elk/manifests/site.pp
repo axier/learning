@@ -1,3 +1,3 @@
-node /^standalone-(\d+).vagrant.local$/ {
+node /^standalone-(\d+).elk.local$/ {
   include ::roles::elk::standalone
 }

@@ -16,6 +16,6 @@ class profiles::apps::marathon::base (
       hostname         => $::fqdn,
       event_subscriber => 'http_callback',
     },
- }
+  }
 
 }
