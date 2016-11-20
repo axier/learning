@@ -2,15 +2,18 @@ forge "https://forgeapi.puppetlabs.com"
 
 mod 'vagrant-profiles', :path => 'profiles'
 mod 'vagrant-roles', :path => 'roles'
-#mod 'vagrant-statis-files', :path => 'static-files'
+mod 'vagrant-static_files', :path => 'static_files'
 
 #modules in development
+mod 'vagrant-bigtop_repo', :path => 'dev-modules/bigtop_repo'
+mod 'vagrant-cloudera_repo', :path => 'dev-modules/cloudera_repo'
 
 
 #utils modules
 mod 'saz-vim', '2.4.0'                      #2016/11/09
 mod 'puppetlabs-java', '1.6.0'              #2016/11/09
 mod 'puppet-archive', '1.1.2'               #2016/11/09
+mod 'puppetlabs-git', '0.5.0'               #2016/11/15
 
 
 # apps modules
@@ -18,3 +21,12 @@ mod 'puppet-archive', '1.1.2'               #2016/11/09
 mod 'lesaux-kibana4', '1.0.17'              #2016/11/09
 mod 'elasticsearch-logstash', '0.6.4'       #2016/11/09
 mod 'elasticsearch-elasticsearch', '0.14.0' #2016/11/09
+
+mod 'cesnet-hue', '1.1.0'                   #2016/11/15
+mod 'cesnet-hadoop', '2.4.3'                #2016/11/15
+
+mod 'rtyler-jenkins', '1.7.0'               #2016/11/15
+
+mod 'hubspot-nexus', '1.7.1'                #2016/11/15
+
+mod 'garethr-docker', '5.3.0'               #2016/11/16
