@@ -1,0 +1,5 @@
+---
+
+nexus::java_version: '8'
+yum::nexus_version: '2.14.1'
+yum::nexus_revision: '01'
