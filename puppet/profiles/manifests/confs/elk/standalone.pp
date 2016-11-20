@@ -1,4 +1,5 @@
 class profiles::confs::elk::standalone {
+
   $java_version          = hiera('elk::java_version')
   $logstash_version      = hiera('elk::logstash::version')
   $elasticsearch_version = hiera('elk::elasticsearch::version')

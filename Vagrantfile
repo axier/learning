@@ -37,7 +37,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       config.vm.define "#{role}-#{count}" do |machine|
         $ipCount = $ipCount + 1
         machine.vm.box = CONFIG['box']
-        machine.vm.hostname = "#{role}-#{count}.vagrant.local"
+        machine.vm.hostname = "#{role}-#{count}.#{conf['environment']}.local"
         machine.vm.network "private_network", ip: "172.16.0.#{$ipCount}"
         machine.vm.synced_folder '.', '/vagrant', disabled: true
 
