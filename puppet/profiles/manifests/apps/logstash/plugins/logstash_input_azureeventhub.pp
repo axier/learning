@@ -1,5 +1,6 @@
 class profiles::apps::logstash::plugins::logstash_input_azureeventhub (
 
+  $ensure,
   $key,
   $username,
   $namespace,
@@ -10,10 +11,11 @@ class profiles::apps::logstash::plugins::logstash_input_azureeventhub (
 ){
 
   ::logstash::plugin { 'logstash-input-azureeventhub':
-    ensure => present,
+    ensure => $ensure,
   }
-  ::logstash::configfile { 'logstash_input_azureeventhub_config':
-    content => "
+  if ensure == 'present' {
+    ::logstash::configfile { 'logstash_input_azureeventhub_config':
+      content => "
 input { 
   azureeventhub { 
    key => \"${key}\"
@@ -24,6 +26,7 @@ input {
    consumer_group => \"${consumer_group}\"
   }
 }",
+    }
   }
 
 }
