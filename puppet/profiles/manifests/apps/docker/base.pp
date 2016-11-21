@@ -1,8 +1,12 @@
 class profiles::apps::docker::base (
 
+  $version,
+
 )
 {
 
-  class { '::docker': }
+  class { '::docker':
+    version => $version,
+  }
 
 }

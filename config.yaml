@@ -20,17 +20,17 @@ persistent-storage:
   enable: false
 box: bento/centos-7.2
 roles:
-  yum:
-    environment: 'nexus'
+  master:
+    environment: 'mesos'
     cpu: 1
     memory: 1024
-    count: 1
+    count: 3
     data:
       enable: false
-  bigtop:
-    environment: 'jenkins'
+  slave:
+    environment: 'mesos'
     cpu: 1
-    memory: 1024
-    count: 1
+    memory: 2048
+    count: 2
     data:
       enable: false
