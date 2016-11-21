@@ -1,7 +1,7 @@
-node /^master-(\d+).mesos.local$/ {
+node /^master-mesos-(\d+).vagrant.local$/ {
   include ::roles::mesos::master
 }
 
-node /^slave-(\d+).mesos.local$/ {
+node /^slave-mesos-(\d+).vagrant.local$/ {
   include ::roles::mesos::slave
 }

@@ -1,3 +1,3 @@
-node /^bigtop-(\d+).jenkins.local$/ {
+node /^bigtop-jenkins-(\d+).vagrant.local$/ {
   include ::roles::jenkins::bigtop
 }

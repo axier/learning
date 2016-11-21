@@ -34,3 +34,11 @@ roles:
     count: 2
     data:
       enable: false
+  test:
+    environment: 'nginx'
+    cpu: 1
+    memory: 1024
+    count: 1
+    data:
+      enable: false
+
