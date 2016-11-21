@@ -4,6 +4,7 @@ elk::java_version: '8'
 
 elk::elasticsearch::version: '2.4.1'
 elk::elasticsearch::instance_name: 'elk'
+
 elk::elasticsearch::modz_elasticsearch_head::ensure: 'present'
 elk::elasticsearch::royrusso_elasticsearch_hq::ensure: 'absent'
 elk::elasticsearch::lmenezes_elasticsearch_kopf::ensure: 'absent'

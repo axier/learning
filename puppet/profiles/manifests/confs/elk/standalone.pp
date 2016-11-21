@@ -1,4 +1,5 @@
 class profiles::confs::elk::standalone {
+
   $java_version                                     = hiera('elk::java_version')
 
   $elasticsearch_version                            = hiera('elk::elasticsearch::version')
@@ -19,7 +20,6 @@ class profiles::confs::elk::standalone {
   $logstash_azureeventhub_consumer_group            = hiera('elk::logstash::azureeventhub::consumer_group')
 
   $kibana_version                                   = hiera('elk::kibana::version')
-
 
   class { '::profiles::utils::java':
     version => $java_version,
