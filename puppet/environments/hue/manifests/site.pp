@@ -1,3 +1,3 @@
-node /^standalone-(\d+).hue.local$/ {
+node /^standalone-hue-(\d+).vagrant.local$/ {
   include ::roles::hue::standalone
 }

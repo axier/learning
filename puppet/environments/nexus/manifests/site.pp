@@ -1,3 +1,3 @@
-node /^yum-(\d+).nexus.local$/ {
+node /^yum-nexus-(\d+).vagrant.local$/ {
   include ::roles::nexus::yum
 }
